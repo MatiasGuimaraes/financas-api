@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 # 2. Pega apenas no ficheiro compilado e coloca num contentor leve para rodar
 FROM openjdk:17.0.1-jdk-slim
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY . .
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
